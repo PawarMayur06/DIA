@@ -6,6 +6,7 @@ on:
 jobs:
   build-and-deploy:
     runs-on: self-hosted
+    environment: DEV
     steps:
 
     - name: 'Checkout GitHub Action' 
