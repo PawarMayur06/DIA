@@ -1,4 +1,4 @@
-name: DEploying DIA to DEV
+name: Deploying DIA to DEV
 
 on:
   workflow_dispatch:
