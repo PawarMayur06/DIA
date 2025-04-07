@@ -24,8 +24,8 @@ jobs:
         password: ${{ secrets.REGISTRY_PASSWORD }}
         
     - run: |
-        docker build . -t mycontainer.azurecr.io/diafrontend:${{ github.run_id }} 
-        docker push mycontainer.azurecr.io/diafrontend:${{ github.run_id }}   
+        sudo docker build . -t mycontainer.azurecr.io/diafrontend:${{ github.run_id }} 
+        sudo docker push mycontainer.azurecr.io/diafrontend:${{ github.run_id }}   
 
     - uses: azure/webapps-deploy@v2
       with:
