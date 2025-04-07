@@ -11,6 +11,10 @@ jobs:
 
     - name: 'Checkout GitHub Action' 
       uses: actions/checkout@main
+        
+    - run: |
+        sudo docker build . -t testdiaacr.azurecr.io/diafrontend:${{ github.run_id }} 
+        # sudo docker push testdiaacr.azurecr.io/diafrontend:${{ github.run_id }}   
 
     - name: 'Sign in via Azure CLI'
       uses: azure/login@v2
@@ -22,10 +26,10 @@ jobs:
         login-server: ${{ secrets.LOGIN_SERVER }}
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
-        
+
     - run: |
-        sudo docker build . -t testdiaacr.azurecr.io/diafrontend:${{ github.run_id }} 
-        sudo docker push testdiaacr.azurecr.io/diafrontend:${{ github.run_id }}   
+        # sudo docker build . -t testdiaacr.azurecr.io/diafrontend:${{ github.run_id }} 
+        sudo docker push testdiaacr.azurecr.io/diafrontend:${{ github.run_id }} 
 
     - uses: azure/webapps-deploy@v2
       with:
