@@ -30,4 +30,4 @@ jobs:
     - uses: azure/webapps-deploy@v2
       with:
         app-name: 'testdiafrontend'
-        images: 'mycontainer.azurecr.io/diafrontend:${{ github.run_id }}'
+        images: 'testdiaacr.azurecr.io/diafrontend:${{ github.run_id }}'
