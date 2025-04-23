@@ -27,7 +27,7 @@ jobs:
 
       - name: 'Build Docker Image'
         run: |
-          sudo docker build . -t $REPO_PREFIX/diafrontend:${{ github.run_id }}
+          sudo docker build . -t ${{ secrets.LOGIN_SERVER }}/$REPO_PREFIX/diafrontend:${{ github.run_id }}
 
       - name: 'Sign in via Azure CLI'
         uses: azure/login@v2
@@ -43,7 +43,7 @@ jobs:
 
       - name: 'Push Docker Image'
         run: |
-          sudo docker push $REPO_PREFIX/diafrontend:${{ github.run_id }}
+          sudo docker push ${{ secrets.LOGIN_SERVER }}/$REPO_PREFIX/diafrontend:${{ github.run_id }}
 
       # - name: 'Deploy to Azure Web App'
       #   uses: azure/webapps-deploy@v2
